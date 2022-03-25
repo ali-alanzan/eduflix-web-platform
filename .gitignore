@@ -1,0 +1,5 @@
+node_modules
+BackUps
+.env
+.env.local
+

@@ -1,0 +1,15 @@
+client
+npm i next react react-dom
+npm i ...material-ui...
+npm i axios
+npm i react-toastify
+npm i jsonwebtoken
+npm i react-image-file-resizer
+npm i react-player
+
+Server
+npm i express mongoose cors dotenv nodemon esm jsonwebtoken bcrypt morgan
+npm i csrf
+npm i express-jwt
+npm install stripe query-string
+ npm i slugify

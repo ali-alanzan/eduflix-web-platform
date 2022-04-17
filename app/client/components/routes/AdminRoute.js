@@ -32,10 +32,6 @@ const AdminRoute = ({children, showNav=true}) => {
 
         } catch (err) {
             setHidden(true);
-            const  {state, dispatch} = useContext(Context);
-            dispatch({
-                type: 'LOGOUT'
-            });
             window.localStorage.removeItem('user');
             const {data} = await axios.get("/api/logout");
             window.location.href = window.location.host+'/login';

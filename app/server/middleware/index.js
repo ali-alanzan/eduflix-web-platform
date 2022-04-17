@@ -11,8 +11,7 @@ export const requireSignIn = expressJwt({
 export const isInstructor = async (req, res, next) => {
     try {
         const user = await User.findById(req.user._id).exec();
-
-        if(!user.role.includes("Instructor")) {
+        if(user == null || !user.role.includes("Instructor")) {
             return res.sendStatus(403);
         } else {
             next();
@@ -26,11 +25,13 @@ export const isInstructor = async (req, res, next) => {
 export const isEnrolled = async (req, res, next) => {
     try {
         const user = await User.findById(req.user._id).exec();
+        if(user == null) return res.sendStatus(403);
+
         const course = await Course.findOne({ slug: req.params.slug }).exec();
 
         // check if course id in the user array
         let ids = [];
-        console.log(course._id);
+        if(user.courses == null) return res.sendStatus(403);
 
         for ( let i = 0; i < user.courses.length; i++) {
             ids.push(user.courses[i].toString());

@@ -21,17 +21,18 @@ const UserRoute = ({children, showNav=true}) => {
             // console.log(data);
             if (data.ok) {
                 setHidden(false);
-                const {state: {user}, } = useContext(Context);
+                // const {state: {user}, } = useContext(Context);
 
-                if(user.role.includes("Instructor")) {
-                    window.location.replace('/instructor');
-                    return;
-                }
+                // if(user.role.includes("Instructor")) {
+                //     window.location.replace('/instructor');
+                //     return;
+                // }
             }
 
 
         } catch (err) {
             setHidden(true);
+            // console.log(err);
             window.localStorage.removeItem('user');
             const {data} = await axios.get("/api/logout");
             window.location.href = window.location.host+'/login';

@@ -68,7 +68,7 @@ const CourseEdit = () => {
 
     const loadCourse = async () => {
         if(!slug) return;
-        const {data} = await axios.get(`/api/user/course/${slug}`);
+        const {data} = await axios.get(`/api/instructor/course/${slug}`);
 
         
         setValues({...data, loading: false});

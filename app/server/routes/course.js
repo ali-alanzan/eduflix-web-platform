@@ -92,6 +92,7 @@ router.get('/stripe-success/:courseId', requireSignIn, stripeSuccess);
 
 router.get('/user-courses', requireSignIn, userCourses);
 router.get("/user/course/:slug", requireSignIn, isEnrolled, readEnrolledCourse);
+router.get("/instructor/course/:slug", requireSignIn, isInstructor, readEnrolledCourse);
 
 
 
